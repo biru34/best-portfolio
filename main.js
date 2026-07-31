@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(reveal => revealObserver.observe(reveal));
 
 
-    /* ================= 7. Animated Counters ================= */
+
     let countersRun = false;
     function runCounters() {
         if(countersRun) return;
@@ -321,49 +321,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-/* ================= 12. Contact Form AJAX Submission ================= */
-const contactForm = document.getElementById('my-contact-form');
-const formStatus = document.getElementById('form-status');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents the default FormSubmit redirect
-
-        // Show a "Sending..." message while they wait
-        formStatus.style.display = 'block';
-        formStatus.style.color = 'var(--text-color)'; // Uses your theme's default text color
-        formStatus.textContent = "Sending message...";
-
-        const formData = new FormData(contactForm);
-
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Show success message in GREEN
-                formStatus.style.color = '#22c55e'; 
-                formStatus.textContent = "Message sent successfully!";
-                contactForm.reset(); // Clears the form fields
-                
-                // Optional: Hide the success message after 5 seconds
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                }, 5000);
-            } else {
-                // Show error message in RED
-                formStatus.style.color = '#ef4444'; 
-                formStatus.textContent = "Oops! There was a problem sending your message.";
-            }
-        })
-        .catch(error => {
-            // Show error message in RED
-            formStatus.style.color = '#ef4444'; 
-            formStatus.textContent = "Oops! There was a problem sending your message.";
-        });
-    });
-}
