@@ -271,7 +271,7 @@ Visit Project
                 <!-- Achievement 2 -->
                 <div class="achievement-card reveal" style="transition-delay: 0.1s;">
                        <img src="images/hack.jpg" alt="PromptX Hackathon"
-                       style="border-radius:20%;>
+                       style="border-radius:20%;">
                     <h3>PromptX 2030 Hackathon</h3>
                     <p class="highlight">Runner-Up</p>
                     <p>Secured the runner-up position through rapid prototyping and innovative problem-solving methodologies.</p>
@@ -315,7 +315,8 @@ Visit Project
                 </div>
                 
                 <!-- FormSubmit Integration -->
-                <form action="https://formsubmit.co/birukzelaalem@gmail.com" method="POST" class="contact-form">
+               <form id="my-contact-form" action="https://formsubmit.co/birukzelaalem@gmail.com" method="POST" class="contact-form">
+
                     <!-- Disable Captcha (optional) -->
                     <input type="hidden" name="_captcha" value="false">
                     <!-- Success Page (optional) -->
@@ -332,9 +333,14 @@ Visit Project
                     </div>
                     <div class="form-group">
                         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary ripple">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-                </form>
+                    </div>    <!-- Your existing submit button -->
+    <button type="submit" class="btn btn-primary ripple">Send Message</button>
+    
+    <!-- ADD THIS NEW LINE RIGHT BELOW THE BUTTON -->
+    <p id="form-status"      class="btn-secondary btn "style="margin-top: 15px; font-weight: bold; display: none;"></p>
+</form>
+
+                  
             </div>
         </section>
     </main>
