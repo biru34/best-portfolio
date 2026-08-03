@@ -4,32 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biruk Zelalem | Full Stack Developer</title>
-    <!-- Google Fonts: Poppins -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Screen -->
+
     <div id="loader" class="loader-container">
         <div class="spinner"></div>
     </div>
 
-    <!-- Mouse Glow Effect -->
-    <div class="mouse-glow"></div>
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
-        <div class="scroll-progress-bar" id="scroll-bar"></div>
+<div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scroll-bar"></div>
     </div>
 
-    <!-- Restore Nav Button (Hidden by default) -->
+    
     <button id="restore-nav-btn" class="floating-btn" aria-label="Restore Navigation">
         <i class="fa-solid fa-arrow-down"></i>
     </button>
 
-    <!-- Navigation -->
+    
     <nav id="navbar">
         <div class="nav-container">
         <div class="logo">
@@ -64,7 +60,7 @@
     </nav>
 
     <main>
-        <!-- Hero Section -->
+        
         <section id="home" class="hero section">
             <div id="particles-container"></div>
             <div class="hero-content">
@@ -96,7 +92,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
+    
         <section id="about" class="about section">
             <h2 class="section-title reveal">About <span>Me</span></h2>
             <div class="about-container">
@@ -117,11 +113,11 @@
                
                     <div class="stats-container">
                         <div class="stat-box">
-                            <h3 class="counter" data-target="2">2</h3>
+                            <h3 class="counter" data-target="2">1</h3>
                             <p>Years Experience</p>
                         </div>
                         <div class="stat-box">
-                            <h3 class="counter" data-target="4">4</h3>
+                            <h3 class="counter" data-target="2">2</h3>
                             <p>Projects Completed</p>
                         </div>
                        
@@ -134,11 +130,11 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
+    
         <section id="skills" class="skills section">
             <h2 class="section-title reveal">My <span>Skills</span></h2>
             <div class="skills-grid">
-                <!-- Frontend -->
+                
                 <div class="skill-category reveal tilt-card">
                     <h3><i class="fa-solid fa-laptop-code"></i> Frontend</h3>
                     <div class="skill-items">
@@ -156,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Backend -->
+                
                 <div class="skill-category reveal tilt-card" style="transition-delay: 0.1s;">
                     <h3><i class="fa-solid fa-server"></i> Backend</h3>
                     <div class="skill-items">
@@ -166,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Database -->
+                
                 <div class="skill-category reveal tilt-card" style="transition-delay: 0.2s;">
                     <h3><i class="fa-solid fa-database"></i> Database</h3>
                     <div class="skill-items">
@@ -179,7 +175,6 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="projects section">
             <h2 class="section-title reveal">Featured <span>Projects</span></h2>
            <div class="project-grid">
@@ -257,18 +252,18 @@ Visit Project
 </div> 
         </section>
 
-        <!-- Achievements Section -->
+    
         <section id="achievements" class="achievements section">
             <h2 class="section-title reveal">My <span>Achievements</span></h2>
             <div class="achievements-grid">
-                <!-- Achievement 1 -->
+            
                 <div class="achievement-card reveal">
                  <img src="images/ino.jpg" alt="Innovation Competition" style="border-radius:20%">
                     <h3>Bedele Innovation Competition</h3>
                     <p class="highlight">Champion</p>
                     <p>Awarded first place for developing a comprehensive technological solution to local educational challenges.</p>
                 </div>
-                <!-- Achievement 2 -->
+    
                 <div class="achievement-card reveal" style="transition-delay: 0.1s;">
                        <img src="images/hack.jpg" alt="PromptX Hackathon"
                        style="border-radius:20%;">
@@ -276,7 +271,7 @@ Visit Project
                     <p class="highlight">Runner-Up</p>
                     <p>Secured the runner-up position through rapid prototyping and innovative problem-solving methodologies.</p>
                 </div>
-                <!-- Achievement 3 -->
+                
                 <div class="achievement-card reveal" style="transition-delay: 0.2s;">
                     <div class="icon-box"><i class="fa-solid fa-star"></i></div>
                     <h3>Future Milestone</h3>
@@ -286,7 +281,7 @@ Visit Project
             </div>
         </section>
 
-        <!-- Contact Section -->
+    
         <section id="contact" class="contact section">
             <h2 class="section-title reveal">Get In <span>Touch</span></h2>
             <div class="contact-container reveal">
@@ -314,12 +309,12 @@ Visit Project
                     </div>
                 </div>
                 
-                <!-- FormSubmit Integration -->
+            
                <form id="my-contact-form" action="https://formsubmit.co/birukzelaalem@gmail.com" method="POST" class="contact-form">
 
-                    <!-- Disable Captcha (optional) -->
+                    
                     <input type="hidden" name="_captcha" value="false">
-                    <!-- Success Page (optional) -->
+                    
                     <input type="hidden" name="_next" value="#">
                     
                     <div class="form-group">
@@ -333,11 +328,11 @@ Visit Project
                     </div>
                     <div class="form-group">
                         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>    <!-- Your existing submit button -->
+                    </div>    
     <button type="submit" class="btn btn-primary ripple">Send Message</button>
     
-    <!-- ADD THIS NEW LINE RIGHT BELOW THE BUTTON -->
-    <p id="form-status"      class="btn-secondary btn "style="margin-top: 15px; font-weight: bold; display: none;"></p>
+    
+    <p id="form-status"      class="btn-secondary btn "style="margin-top: 15px; font-weight: bold; display: none;"></p> 
 </form>
 
                   
@@ -345,7 +340,7 @@ Visit Project
         </section>
     </main>
 
-    <!-- Footer -->
+
     <footer>
         <div class="footer-content">
             <div class="footer-logo">Biruk Zelalem</div>
@@ -365,7 +360,6 @@ Visit Project
         </div>
     </footer>
 
-    <!-- Back to top button -->
     <button id="back-to-top" class="floating-btn" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>

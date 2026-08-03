@@ -1,21 +1,20 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ================= 1. Loading Screen ================= */
+ 
     const loader = document.getElementById('loader');
     window.addEventListener('load', () => {
         setTimeout(() => {
             loader.style.opacity = '0';
             loader.style.visibility = 'hidden';
-        }, 500); // Small delay for smooth effect
+        }, 500); 
     });
 
-    /* ================= 2. Theme Switcher ================= */
+
     const themeToggle = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
     const themeIcon = themeToggle.querySelector('i');
 
-    // Check LocalStorage
+  
     const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -39,20 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* ================= 3. Navigation Logic ================= */
+   
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinksContainer = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-link');
     const restoreNavBtn = document.getElementById('restore-nav-btn');
 
-    // Hamburger Toggle
+    
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinksContainer.classList.toggle('active');
     });
 
-    // Close menu when a link is clicked
+  
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close menu when clicking outside
+   
     document.addEventListener('click', (e) => {
         if (!navbar.contains(e.target) && navLinksContainer.classList.contains('active')) {
             hamburger.classList.remove('active');
@@ -68,45 +67,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Double-click to hide Nav
+
     navbar.addEventListener('dblclick', () => {
         navbar.classList.add('nav-hidden');
         restoreNavBtn.classList.add('visible');
     });
 
-    // Restore Nav Button
     restoreNavBtn.addEventListener('click', () => {
         navbar.classList.remove('nav-hidden');
         restoreNavBtn.classList.remove('visible');
     });
 
-    /* ================= 4. Scroll Features ================= */
+
     const scrollBar = document.getElementById('scroll-bar');
     const backToTopBtn = document.getElementById('back-to-top');
     const sections = document.querySelectorAll('.section');
 
     window.addEventListener('scroll', () => {
-        // Sticky Nav styling
+    
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
-        // Scroll Progress Bar
+        
         const scrollTop = document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrollPercentage = (scrollTop / scrollHeight) * 100;
         scrollBar.style.width = scrollPercentage + '%';
 
-        // Back to top button visibility
+        
         if (scrollTop > 500) {
             backToTopBtn.classList.add('visible');
         } else {
             backToTopBtn.classList.remove('visible');
         }
 
-        // Active Nav Link Highlighting (Scroll Spy)
+    
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -124,13 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Back to top click
+
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
 
-    /* ================= 5. Typing Animation ================= */
     const typedTextSpan = document.querySelector('.typed-text');
     const textArray = ["Full Stack Developer", "Tech Enthusiast", "Problem Solver", "Grade 12 Student"];
     const typingDelay = 100;
@@ -163,8 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if(textArray.length) setTimeout(type, newTextDelay + 250);
 
-
-    /* ================= 6. Scroll Reveal Animation ================= */
     const reveals = document.querySelectorAll('.reveal');
     const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
@@ -174,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entry.target.classList.add('active');
             observer.unobserve(entry.target);
             
-            // Trigger counters if it's the about section
+        
             if(entry.target.classList.contains('about-text')){
                 runCounters();
             }
@@ -210,17 +205,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* ================= 8. Mouse Effects (Glow & Tilt & Parallax) ================= */
+
     const mouseGlow = document.querySelector('.mouse-glow');
     const tiltCards = document.querySelectorAll('.tilt-card');
     const heroImage = document.querySelector('.hero-image');
 
     document.addEventListener('mousemove', (e) => {
-        // Global mouse glow
+        
         mouseGlow.style.left = e.clientX + 'px';
         mouseGlow.style.top = e.clientY + 'px';
 
-        // Simple Hero Parallax
+        
         if(heroImage) {
             const x = (window.innerWidth - e.pageX * 2) / 90;
             const y = (window.innerHeight - e.pageY * 2) / 90;
@@ -228,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Vanilla JS Tilt Effect for cards/images
+
     tiltCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -250,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* ================= 9. Ripple Button Effect ================= */
     const buttons = document.querySelectorAll('.ripple');
     buttons.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -270,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* ================= 10. Floating Particles Background ================= */
+    
     const particlesContainer = document.getElementById('particles-container');
     const particleCount = window.innerWidth > 768 ? 30 : 15;
 
@@ -283,23 +277,23 @@ document.addEventListener('DOMContentLoaded', () => {
         particle.style.borderRadius = '50%';
         particle.style.opacity = Math.random() * 0.5 + 0.1;
         
-        // Random positioning
+      
         particle.style.left = Math.random() * 100 + 'vw';
         particle.style.top = Math.random() * 100 + 'vh';
         
-        // Random float animation
+       
         const duration = Math.random() * 10 + 10; // 10s to 20s
         const direction = Math.random() > 0.5 ? 1 : -1;
         
         particle.style.transition = `transform ${duration}s linear`;
         particlesContainer.appendChild(particle);
 
-        // trigger movement
+       
         setTimeout(() => {
             particle.style.transform = `translate(${Math.random() * 200 * direction}px, ${Math.random() * 200 * direction}px)`;
         }, 100);
 
-        // Keep them moving endlessly
+       
         setInterval(() => {
              const newDirX = Math.random() > 0.5 ? 1 : -1;
              const newDirY = Math.random() > 0.5 ? 1 : -1;
@@ -308,30 +302,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* ================= 11. Current Year & Image Fallbacks ================= */
+  
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Fallback for missing images
+    
     const images = document.querySelectorAll('.fallback-img');
     images.forEach(img => {
         img.addEventListener('error', function() {
-            // Replace with a solid color placeholder generated via data URI (SVG)
+        
             this.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill="%233b82f6" opacity="0.2"><rect width="100%25" height="100%25"/><text x="50%25" y="50%25" font-size="20" text-anchor="middle" alignment-baseline="middle" fill="%23ffffff" font-family="sans-serif">Image not found</text></svg>`;
         });
     });
 
 });
-/* ================= 12. Contact Form AJAX Submission ================= */
+
 const contactForm = document.getElementById('my-contact-form');
 const formStatus = document.getElementById('form-status');
 
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents the default FormSubmit redirect
+        e.preventDefault(); 
 
-        // Show a "Sending..." message while they wait
+        
         formStatus.style.display = 'block';
-        formStatus.style.color = 'var(--text-color)'; // Uses your theme's default text color
+        formStatus.style.color = 'var(--text-color)'; 
         formStatus.textContent = "Sending message...";
 
         const formData = new FormData(contactForm);
@@ -345,23 +339,23 @@ if (contactForm) {
         })
         .then(response => {
             if (response.ok) {
-                // Show success message in GREEN
+                
                 formStatus.style.color = '#22c55e'; 
                 formStatus.textContent = "Message sent successfully!";
-                contactForm.reset(); // Clears the form fields
+                contactForm.reset();
                 
-                // Optional: Hide the success message after 5 seconds
+                
                 setTimeout(() => {
                     formStatus.style.display = 'none';
                 }, 5000);
             } else {
-                // Show error message in RED
+                
                 formStatus.style.color = '#ef4444'; 
                 formStatus.textContent = "Oops! There was a problem sending your message.";
             }
         })
         .catch(error => {
-            // Show error message in RED
+            
             formStatus.style.color = '#ef4444'; 
             formStatus.textContent = "Oops! There was a problem sending your message.";
         });
